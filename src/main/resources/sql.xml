@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+<entry key="weeklyUserMedia">
+    <![CDATA[
+	SELECT u.username, count (f.id) as numFiles
+	    FROM userinfo u JOIN userfile f ON u.id = f.userinfo_id
+	--	where f.createdon > (now() - interval '7 day')
+	GROUP BY u.username;
+    ]]>
+
+</entry>
+</properties>
